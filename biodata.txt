@@ -1,0 +1,6 @@
+Nama	Jenis Kelamin	Nomor HP	Alamat
+Vina	0123	Perempuan	Jl. A
+Vino	01234	Laki-Laki	Jl. B
+Vini	012345	Perempuan	Jl. C
+Vani	0123456	Perempuan	Jl. D
+Veni	01234567	Perempuan	Jl. E
