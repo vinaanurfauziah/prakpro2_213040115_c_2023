@@ -234,12 +234,16 @@ public class AplikasiBiodata extends JFrame {
             writer.write("Nama\tJenis Kelamin\tNomor HP\tAlamat\n");
             for (int i = 0; i < tableModel2.getRowCount(); i++) {
                 List<String> rowData = tableModel2.getRowData(i);
-                String rowString = String.join("\t", rowData);
-                writer.write(rowString + "\n");
+                String nama = rowData.get(0);
+                String jenisKelamin = rowData.get(2);
+                String nomorHP = rowData.get(1);
+                String alamat = rowData.get(3);
+                writer.write(nama + "\t" + jenisKelamin + "\t" + nomorHP + "\t" + alamat + "\n");
             }
+            writer.close();
             JOptionPane.showMessageDialog(this, "Data berhasil disimpan ke " + fileName, "Informasi", JOptionPane.INFORMATION_MESSAGE);
 
-            // Buka file explorer atau aplikasi default yang terkait dengan file txt
+            // Buka file biodata.txt dengan aplikasi default yang terkait dengan file txt
             Desktop desktop = Desktop.getDesktop();
             File fileToOpen = new File(fileName);
             desktop.open(fileToOpen);
@@ -247,6 +251,7 @@ public class AplikasiBiodata extends JFrame {
             JOptionPane.showMessageDialog(this, "Gagal menyimpan data ke " + fileName, "Kesalahan", JOptionPane.ERROR_MESSAGE);
         }
     }
+
 
     // Metode main untuk memulai aplikasi Swing di dalam thread event dispatch.
     public static void main(String[] args) {

@@ -16,17 +16,38 @@ public class MyTableModel2 extends AbstractTableModel {
     }
 
     public String getColumnName(int col) {
-        return columnNames[col];
+        // Mengubah label kolom sesuai dengan yang diinginkan
+        switch (col) {
+            case 0:
+                return "Nama";
+            case 1:
+                return "Jenis Kelamin";
+            case 2:
+                return "Nomor HP";
+            case 3:
+                return "Alamat";
+            default:
+                return "";
+        }
     }
 
     public Object getValueAt(int row, int col) {
         List<String> rowItem = data.get(row);
-        return rowItem.get(col);
+        if (col == 1) {
+            // Jika kolom adalah "Jenis Kelamin", kembalikan nilainya
+            return rowItem.get(2);
+        } else if (col == 2) {
+            // Jika kolom adalah "Nomor HP", kembalikan nilainya
+            return rowItem.get(1);
+        } else {
+            // Selain itu, kembalikan nilai sesuai dengan kolom yang benar
+            return rowItem.get(col);
+        }
     }
 
     public boolean isCellEditable(int row, int col) {
-        return false;
-    }
+    return false;
+}
 
     public void add(List<String> value) {
         data.add(value);
